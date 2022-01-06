@@ -23,6 +23,7 @@ function App() {
       });
     }else {
       console.log("details do not match")
+      setError("Detals do not match")
     }        
   }
 
