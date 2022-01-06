@@ -17,6 +17,10 @@ function App() {
     console.log(details);
     if (details.email == adminUser.email && details.password == adminUser.password){
       console.log("logged in");
+      setUser({
+        name: details.name,
+        email: details.email
+      });
     }else {
       console.log("details do not match")
     }        
@@ -24,15 +28,15 @@ function App() {
 
 
   const Logout = () =>{
-    console.log("Logout");
+    setUser({name:"", email:""})
   }
 
   return (
     <div className="App">
         {(user.email != "") ? (
           <div className="welcome">
-            <h12>Welcome,<span>{user.name}</span></h12>
-            <button>Logout</button>
+            <h2>Welcome, <span>{user.name}</span></h2>
+            <button onClick={Logout}>Logout</button>
           </div>
         ): (
           <LoginForm Login={Login} error={error}/>
